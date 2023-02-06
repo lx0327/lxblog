@@ -41,8 +41,8 @@ export default defineUserConfig({
             link: '/guide/HTML&CSS/HTML&CSS.md',
           },
           {
-            text: '基础',
-            link: '/guide/HTML&CSS/HTML&CSS.md',
+            text: 'Scss模块化导入',
+            link: '/guide/HTML&CSS/Scss模块化导入.md',
           },
         ],
       },
@@ -71,9 +71,25 @@ export default defineUserConfig({
             link: '/guide/Vue/Vue.md',
           },
         ],
+      },
+      {
+        text: 'React',
+        collapsible: true,
+        children: [
+          // SidebarItem
+          {
+            text: 'Redux使用教程',
+            link: '/guide/React/Redux.md',
+          },
+        ],
       }
 
 
     ],
   }),
+  "plugins": [
+    // 插件的配置
+    // ['@vuepress/back-to-top'],
+  ]
+
 })
