@@ -24,6 +24,10 @@ export default defineUserConfig({
         text: 'Vue',
         children: [{ text: 'Vue基础', link: '/guide/Vue/Vue.md' }],
       },
+      {
+        text: 'React',
+        children: [{ text: 'React基础', link: '/guide/React/React基础.md' }],
+      },
     ],
     sidebar: [
       // SidebarItem
@@ -78,13 +82,15 @@ export default defineUserConfig({
         children: [
           // SidebarItem
           {
+            text: 'React基础',
+            link: '/guide/React/React基础.md',
+          },
+          {
             text: 'Redux使用教程',
             link: '/guide/React/Redux.md',
           },
         ],
       }
-
-
     ],
   }),
   "plugins": [

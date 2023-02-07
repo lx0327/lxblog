@@ -1,32 +1,19 @@
----
-title: redux-toolkit使用步骤
-date: 2022-11-30 09:25:00
-author: lx
-summary: react项目中使用redux-toolkit
-categories: React
-tags:
-  - React-redux
-  - Redux-toolkit
----
-
-
-
-#####    1.安装redux配套工具
+##### 1.安装 redux 配套工具
 
 ```npm
 # 安装redux配套工具
 npm i @reduxjs/toolkit react-redux
 ```
 
-#####     2.创建store
+##### 2.创建 store
 
-> 创建store的的核心步骤分为两步
+> 创建 store 的的核心步骤分为两步
 >
-> 1. 使用toolkit的**createSlice**方法创建一个独立的子模块
+> 1. 使用 toolkit 的**createSlice**方法创建一个独立的子模块
 > 2. 使用**configureStore**语法组合子模块
-> 3. 文件夹结构  store[index.js[module[countStore.js]]]
+> 3. 文件夹结构 store[index.js[module[countStore.js]]]
 
-​         1.创建子模块
+​ 1.创建子模块
 
 ```react
 import { createSlice } from '@reduxjs/toolkit'
@@ -55,7 +42,7 @@ export { add }
 export default reducer
 ```
 
-​        2.组合子模块
+​ 2.组合子模块
 
 ```react
 import { configureStore } from '@reduxjs/toolkit'
@@ -70,11 +57,9 @@ export default configureStore({
 })
 ```
 
-##### 3.为React提供redux
+##### 3.为 React 提供 redux
 
-> 要想让所有的组件都有资格访问store中的数据，需要我们在入口文件中添加Provide来包裹根组件
->
-> 
+> 要想让所有的组件都有资格访问 store 中的数据，需要我们在入口文件中添加 Provide 来包裹根组件
 
 ```react
 import React from 'react'
@@ -93,11 +78,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 )
 ```
 
-##### 4.组件中使用store
+##### 4.组件中使用 store
 
-> 组件中使用store中的数据需要借助一个hool方法，叫做useSelector
+> 组件中使用 store 中的数据需要借助一个 hool 方法，叫做 useSelector
 >
-> useSelector(store=>store.模块名)方法的返回值是一个对象，里面包含了store中的所有数据
+> useSelector(store=>store.模块名)方法的返回值是一个对象，里面包含了 store 中的所有数据
 
 ```react
 import { useSelector } from 'react-redux'
@@ -105,7 +90,7 @@ import { useSelector } from 'react-redux'
 function App () {
   // 使用数据
   const { count } = useSelector(store => store.counterStore)//直接解构出store里的count
-  
+
   return (
     <div className="App">
       {count}
@@ -117,9 +102,9 @@ function App () {
 export default App
 ```
 
-##### 5.组件中修改store中的数据
+##### 5.组件中修改 store 中的数据
 
-> 通过dispatch函数传入导出的action方法
+> 通过 dispatch 函数传入导出的 action 方法
 
 ```react
 import { useSelector, useDispatch } from 'react-redux'
@@ -146,7 +131,7 @@ export default App
 
 6.组件中修改数据并传参
 
-> 在修改数据的方法中添加第二个参数action，对象中有一个固定的属性payload为传递过来的参数
+> 在修改数据的方法中添加第二个参数 action，对象中有一个固定的属性 payload 为传递过来的参数
 
 ```react
 import { createSlice } from "@reduxjs/toolkit"
@@ -173,13 +158,13 @@ const reducer = counterStore.reducer
 export default reducer
 ```
 
-> dispatch调用方法的时候传入实参就可以
+> dispatch 调用方法的时候传入实参就可以
 
-```react 
+```react
 <button onClick={() => dispatch(addTaskList('vue'))}>addList</button>
 ```
 
-##### 7.Redux异步处理
+##### 7.Redux 异步处理
 
 ```react
 import { createSlice } from '@reduxjs/toolkit'
@@ -240,4 +225,3 @@ function App () {
 
 export default App
 ```
-
