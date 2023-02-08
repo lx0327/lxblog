@@ -7,7 +7,7 @@ title: pinia使用教程
 ## 1：创建一个 pinia（根存储）并将其传递给应用程序
 
 ```js
-import { createPinia } from 'pinia';
+import { createPinia } from "pinia";
 app.use(createPinia());
 ```
 
@@ -19,9 +19,9 @@ app.use(createPinia());
 
 ```js
 // stores/counter.js
-import { defineStore } from 'pinia';
+import { defineStore } from "pinia";
 // 第一个参数是应用程序中 store 的唯一 id是必要的，Pinia 使用它来将 store 连接到 devtools。 将返回的函数命名为 use... 是跨可组合项的约定，以使其符合你的使用习惯。
-export const useCounterStore = defineStore('counter', {
+export const useCounterStore = defineStore("counter", {
   state: () => {
     return { count: 0 };
   },
@@ -30,15 +30,15 @@ export const useCounterStore = defineStore('counter', {
   actions: {
     increment() {
       this.count++;
-    },
-  },
+    }
+  }
 });
 ```
 
 ## 3：创建 store(组合式类似于组件的 setup)
 
 ```javascript
-export const useCounterStore = defineStore('counter', () => {
+export const useCounterStore = defineStore("counter", () => {
   const count = ref(0);
   function increment() {
     count.value++;
@@ -51,7 +51,7 @@ export const useCounterStore = defineStore('counter', () => {
 ## 4：在组件中使用 store
 
 ```javascript
-import { useCounterStore } from '@/stores/counter';
+import { useCounterStore } from "@/stores/counter";
 
 export default {
   setup() {
@@ -62,7 +62,7 @@ export default {
     counter.$patch({ count: counter.count + 1 });
     // 或使用 action 代替
     counter.increment();
-  },
+  }
 };
 ```
 
@@ -87,16 +87,16 @@ export default defineComponent({
       // 一直会是 2
       doubleCount,
       // 这将是响应式的
-      doubleValue: computed(() => store.doubleCount),
+      doubleValue: computed(() => store.doubleCount)
     };
-  },
+  }
 });
 ```
 
 > 为了从 Store 中提取属性同时保持其响应式，您需要使用`storeToRefs()`。 它将为任何响应式属性创建 refs。 当您仅使用 store 中的状态但不调用任何操作时，这很有用：
 
 ```js
-import { storeToRefs } from 'pinia';
+import { storeToRefs } from "pinia";
 
 export default defineComponent({
   setup() {
@@ -108,9 +108,9 @@ export default defineComponent({
 
     return {
       name,
-      doubleCount,
+      doubleCount
     };
-  },
+  }
 });
 ```
 

@@ -1,38 +1,32 @@
-#### 1：js执行机制
+---
+title: js执行机制
+---
 
-​       由于JavaScript是一门单线程语言，就意味着前一个任务结束，才会执行后一个任务，如果前一个任务耗时过长，后一个任务就不得不一直等着。
+## 1：js 执行机制
 
-   如果排队是因为计算量大，CPU忙不过来，倒也算了，但是很多时候CPU是闲着的，因为IO设备（输入输出设备）很慢（比如Ajax操作从网络读取数据），不得不等着结果出来，再往下执行。
+​ 由于 JavaScript 是一门单线程语言，就意味着前一个任务结束，才会执行后一个任务，如果前一个任务耗时过长，后一个任务就不得不一直等着。
 
-　　JavaScript语言的设计者意识到，这时主线程完全可以不管IO设备，挂起处于等待中的任务，先运行排在后面的任务。等到IO设备返回了结果，再回过头，把挂起的任务继续执行下去。
+如果排队是因为计算量大，CPU 忙不过来，倒也算了，但是很多时候 CPU 是闲着的，因为 IO 设备（输入输出设备）很慢（比如 Ajax 操作从网络读取数据），不得不等着结果出来，再往下执行。
 
+JavaScript 语言的设计者意识到，这时主线程完全可以不管 IO 设备，挂起处于等待中的任务，先运行排在后面的任务。等到 IO 设备返回了结果，再回过头，把挂起的任务继续执行下去。
 
+## 2：同步任务和异步任务
 
-#### 2：同步任务和异步任务
-
-　　于是，所有任务可以分成两种，一种是同步任务（synchronous），另一种是异步任务（asynchronous）。同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；异步任务指的是，不进入主线程、而进入"任务队列"（task queue）的任务，只有"任务队列"通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。
+于是，所有任务可以分成两种，一种是同步任务（synchronous），另一种是异步任务（asynchronous）。同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；异步任务指的是，不进入主线程、而进入"任务队列"（task queue）的任务，只有"任务队列"通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。
 
 ![img](https://images2018.cnblogs.com/blog/1424035/201807/1424035-20180717203930248-574135681.png)
 
-　   **1、同步和异步任务分别进入不同的执行"场所"，同步的进入主线程，异步的进入Event Table并注册函数。**
-　　**2、当Event Table中指定的事情完成时，会将这个函数移入Event Queue。**
-　　**3、主线程内的任务执行完毕为空，会去Event Queue读取对应的函数，进入主线程执行。**
-　　**4、上述过程会不断重复，也就是常说的Event Loop(事件循环)。**
-　　**5、我们不禁要问了，那怎么知道主线程执行栈为空啊？js引擎存在monitoring process进程，会持续不断的检查主线程执行栈是否为空，一旦为空，就会去Event Queue那里检查是否有等待被调用的函数。**
+**1、同步和异步任务分别进入不同的执行"场所"，同步的进入主线程，异步的进入 Event Table 并注册函数。** 　　**2、当 Event Table 中指定的事情完成时，会将这个函数移入 Event Queue。** 　　**3、主线程内的任务执行完毕为空，会去 Event Queue 读取对应的函数，进入主线程执行。** 　　**4、上述过程会不断重复，也就是常说的 Event Loop(事件循环)。** 　　**5、我们不禁要问了，那怎么知道主线程执行栈为空啊？js 引擎存在 monitoring process 进程，会持续不断的检查主线程执行栈是否为空，一旦为空，就会去 Event Queue 那里检查是否有等待被调用的函数。**
 
-#### 3:宏任务和微任务
+## 3:宏任务和微任务
 
-JavaScript除了广义上的的同步任务何异步任务，其对任务还有更精细的定义：
-　　　　**macro-task(宏任务)：包括整体代码script，setTimeout，setInterval**
-　　　　**micro-task(微任务)：Promise，process.nextTick**
-　　不同类型的任务会进入对应的Event Queue。
-　　事件循环的顺序，决定js代码的执行顺序。进入整体代码(宏任务)后，开始第一次循环。接着执行所有的微任务。然后再次从宏任务开始，找到其中一个任务队列执行完毕，再执行所有的微任务。
+JavaScript 除了广义上的的同步任务何异步任务，其对任务还有更精细的定义：　　　　**macro-task(宏任务)：包括整体代码 script，setTimeout，setInterval** 　　　　**micro-task(微任务)：Promise，process.nextTick** 　　不同类型的任务会进入对应的 Event Queue。　　事件循环的顺序，决定 js 代码的执行顺序。进入整体代码(宏任务)后，开始第一次循环。接着执行所有的微任务。然后再次从宏任务开始，找到其中一个任务队列执行完毕，再执行所有的微任务。
 
 ![img](https://images2018.cnblogs.com/blog/1424035/201807/1424035-20180717204025092-991427971.png)
 
-#### 4:实例
+## 4:实例
 
-######      1: 同步
+###### 1: 同步
 
 ```javascript
 console.log(1);
@@ -44,13 +38,13 @@ console.log(3);
 */
 ```
 
-######   2 :同步和异步
+###### 2 :同步和异步
 
 ```javascript
 console.log(1);
-setTimeout(function() {
-    console.log(2);
-},1000)
+setTimeout(function () {
+  console.log(2);
+}, 1000);
 console.log(3);
 /*
     执行结果：1、3、2
@@ -63,12 +57,12 @@ console.log(3);
 
 ```javascript
 console.log(1);
-setTimeout(function() {
-    console.log(2);
-},1000)
-setTimeout(function() {
-    console.log(3);
-},0)
+setTimeout(function () {
+  console.log(2);
+}, 1000);
+setTimeout(function () {
+  console.log(3);
+}, 0);
 console.log(4);
 /*
     猜测是：1、4、2、3   但实际上是：1、4、3、2
@@ -86,16 +80,15 @@ Event Queue中，所以先执行的是3而不是在前面的2）
 
 ```javascript
 console.log(1);
-setTimeout(function() {
-    console.log(2)
-},1000);
- 
-new Promise(function(resolve) {
-    console.log(3);
-    resolve();
-}
-).then(function() {
-    console.log(4)
+setTimeout(function () {
+  console.log(2);
+}, 1000);
+
+new Promise(function (resolve) {
+  console.log(3);
+  resolve();
+}).then(function () {
+  console.log(4);
 });
 console.log(5);
 /*
@@ -108,45 +101,45 @@ console.log(5);
 */
 ```
 
-#### 5：测试
+## 5：测试
 
 ```javascript
-console.log('1');
- 
-setTimeout(function() {
-    console.log('2');
-    process.nextTick(function() {
-        console.log('3');
-    })
-    new Promise(function(resolve) {
-        console.log('4');
-        resolve();
-    }).then(function() {
-        console.log('5')
-    })
-})
-process.nextTick(function() {
-    console.log('6');
-})
-new Promise(function(resolve) {
-    console.log('7');
+console.log("1");
+
+setTimeout(function () {
+  console.log("2");
+  process.nextTick(function () {
+    console.log("3");
+  });
+  new Promise(function (resolve) {
+    console.log("4");
     resolve();
-}).then(function() {
-    console.log('8')
-})
- 
-setTimeout(function() {
-    console.log('9');
-    process.nextTick(function() {
-        console.log('10');
-    })
-    new Promise(function(resolve) {
-        console.log('11');
-        resolve();
-    }).then(function() {
-        console.log('12')
-    })
-})
+  }).then(function () {
+    console.log("5");
+  });
+});
+process.nextTick(function () {
+  console.log("6");
+});
+new Promise(function (resolve) {
+  console.log("7");
+  resolve();
+}).then(function () {
+  console.log("8");
+});
+
+setTimeout(function () {
+  console.log("9");
+  process.nextTick(function () {
+    console.log("10");
+  });
+  new Promise(function (resolve) {
+    console.log("11");
+    resolve();
+  }).then(function () {
+    console.log("12");
+  });
+});
 /*
 1、 第一轮事件循环流程分析如下：
     整体script作为第一个宏任务进入主线程，遇到console.log，输出1。
@@ -197,4 +190,3 @@ setTimeout(function() {
     整段代码，共进行了三次事件循环，完整的输出为1，7，6，8，2，4，3，5，9，11，10，12。
 */
 ```
-
