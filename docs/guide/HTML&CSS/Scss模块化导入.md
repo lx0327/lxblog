@@ -6,7 +6,7 @@ title: SCSS模块化引入
 3. 导入SCSS  `import style from './xxx.scss'`
 4. 组件中将className设置为`className={style.xxx}`
 
-```react
+```javascript
 import React from 'react';
 import style from './about.module.scss';
 function About() {
