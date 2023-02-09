@@ -39,7 +39,7 @@ function fn() {
 
 ## 2:const 关键字
 
-​ 声明常量
+ 声明常量
 
 1. 一定要赋初始值
 2. 一般常量使用大写（潜规则）
@@ -68,10 +68,10 @@ console.log(d); //4
 
 ```javascript
 const zhao = {
-  name: '赵本山',
-  age: '不详',
+  name: 'lx',
+  age: '18',
   xiaopin: function () {
-    console.log('我可以演小品');
+    console.log('哈哈哈');
   },
 };
 let {

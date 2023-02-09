@@ -38,7 +38,11 @@ export default defineUserConfig({
         {
           text: "HTML&CSS",
           collapsible: true,
-          children: ["/guide/HTML&CSS/HTML&CSS.md", "/guide/HTML&CSS/Scss模块化导入.md"]
+          children: [
+            "/guide/HTML&CSS/flex布局.md",
+            "/guide/HTML&CSS/Scss模块化导入.md",
+            "/guide/HTML&CSS/浮动定位.md"
+          ]
         },
         {
           text: "JavaScript",

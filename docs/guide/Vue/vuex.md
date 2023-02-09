@@ -10,7 +10,7 @@ Vuex 是一个专为 Vue.js 应用程序开发的**状态管理模式**。它采
 
 ## 2:vuex 工作流程
 
-![img](https://upload-images.jianshu.io/upload_images/16550832-20d0ad3c60a99111.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp)
+[![pSWuA1O.md.png](https://s1.ax1x.com/2023/02/09/pSWuA1O.md.png)](https://imgse.com/i/pSWuA1O)
 
 首先，`Vue`组件如果调用某个`VueX`的方法过程中需要向后端请求时或者说出现异步操作时，需要`dispatch` VueX 中`actions`的方法，以保证数据的同步。可以说，`action`的存在就是为了让`mutations`中的方法能在异步操作中起作用。
 
@@ -22,15 +22,15 @@ Vuex 是一个专为 Vue.js 应用程序开发的**状态管理模式**。它采
 
 ##### 1：state（基本数据）
 
-​ **单一状态树**
+ **单一状态树**
 
 Vuex 使用单一状态树，即用一个对象就包含了全部的状态数据。`state`作为构造器选项，定义了所有我们需要的基本状态参数
 
-​ **组件中获取数据**
+ **组件中获取数据**
 
-​ $store.state.名称
+ $store.state.名称
 
-​ **增删 state 中的成员**
+ **增删 state 中的成员**
 
 为了配合 Vue 的响应式数据，我们在 Mutations 的方法中，应当使用 Vue 提供的方法来进行操作。如果使用`delete`或者`xx.xx = xx`的形式去删或增，则 Vue 不能对数据进行实时响应。
 
@@ -63,7 +63,7 @@ Getters 中的方法有两个默认参数
 
 ##### 组件中 **使用**方式
 
-​ $store.getters.方法名;
+ $store.getters.方法名;
 
 ```
 getters:{

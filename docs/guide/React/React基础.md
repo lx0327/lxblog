@@ -56,7 +56,7 @@ react 既可以开发 web 应用也可以使用同样的语法开发原生应用
 
 ```javascript
 const name = 'lx'
-<h1>你好，我叫{lx}</h1>
+<h1>你好，我叫{name}</h1>
 ```
 
 **可以使用的表达式**
