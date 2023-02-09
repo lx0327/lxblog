@@ -31,7 +31,7 @@ let 关键字用来声明变量，使用 let 声明的变量有几个特点：
 4. 不影响作用域链；
 
 ```javascript
-let school = "abc";
+let school = 'abc';
 function fn() {
   console.log(school); //abc
 }
@@ -56,7 +56,7 @@ ES6 允许按照一定模式从数组和对象中提取值，对变量进行赋�
 1：数组的解构：
 
 ```javascript
-const F4 = ["1", "2", "3", "4"]; //这里是中括号
+const F4 = ['1', '2', '3', '4']; //这里是中括号
 let [a, b, c, d] = F4;
 console.log(a); //1
 console.log(b); //2
@@ -68,17 +68,17 @@ console.log(d); //4
 
 ```javascript
 const zhao = {
-  name: "赵本山",
-  age: "不详",
+  name: '赵本山',
+  age: '不详',
   xiaopin: function () {
-    console.log("我可以演小品");
-  }
+    console.log('我可以演小品');
+  },
 };
 let {
   //这里是花括号
   name,
   age,
-  xiaopin
+  xiaopin,
 } = zhao;
 console.log(name);
 console.log(age);
@@ -105,9 +105,9 @@ console.log(out)  //lx哈哈哈
 ES6 允许在大括号里面，直接写入变量和函数，作为对象的属性和方法,这样的书写更加简洁
 
 ```javascript
-let name = "lx";
+let name = 'lx';
 let change = function () {
-  console.log("哈哈哈哈");
+  console.log('哈哈哈哈');
 };
 //创建对象
 const school = {
@@ -119,8 +119,8 @@ const school = {
   change,
   // 声明方法的简化
   say() {
-    console.log("额鹅鹅鹅！");
-  }
+    console.log('额鹅鹅鹅！');
+  },
 };
 school.change();
 school.say();
@@ -150,20 +150,20 @@ ES6 允许使用箭头（=>）定义函数，箭头函数提供了一种更加�
 // ES6允许使用箭头（=>）定义函数
 // 传统写法：无参数
 var say = function () {
-  console.log("hello！");
+  console.log('hello！');
 };
 say();
 // ES6写法：无参数
-let speak = () => console.log("hello 哈哈！");
+let speak = () => console.log('hello 哈哈！');
 speak();
 // 传统写法：一个参数
 var hello = function (name) {
-  return "hello " + name;
+  return 'hello ' + name;
 };
-console.log(hello("lx"));
+console.log(hello('lx'));
 // ES6箭头函数：一个参数
-let hi = (name) => "hi " + name;
-console.log(hi("lx"));
+let hi = (name) => 'hi ' + name;
+console.log(hi('lx'));
 // 传统写法：多个参数
 var sum = function (a, b, c) {
   return a + b + c;
@@ -175,16 +175,16 @@ console.log(he(1, 2, 3));
 // 特性
 // 1、箭头函数的this是静态的，始终指向函数声明时所在作用域下的this的值
 const school = {
-  name: "大哥"
+  name: '大哥',
 };
 // 传统函数
 function getName() {
-  console.log("getName：" + this.name);
+  console.log('getName：' + this.name);
 }
 
 // 箭头函数
-getName1 = () => console.log("getName1：" + this.name);
-window.name = "lx";
+getName1 = () => console.log('getName1：' + this.name);
+window.name = 'lx';
 // 直接调用
 getName(); //lx
 getName1(); //lx
@@ -221,13 +221,13 @@ console.log(result); // 15
 2:与解构赋值结合
 
 ```javascript
-function A({ host = "127.0.0.1", username, password, port }) {
-  console.log(host + "-" + username + "-" + password + "-" + port);
+function A({ host = '127.0.0.1', username, password, port }) {
+  console.log(host + '-' + username + '-' + password + '-' + port);
 }
 A({
-  username: "lx",
-  password: "123",
-  port: "80"
+  username: 'lx',
+  password: '123',
+  port: '80',
 });
 ```
 
@@ -242,7 +242,7 @@ function data() {
   console.log(arguments);
 }
 
-data("大哥", "二哥", "三哥", "四哥");
+data('大哥', '二哥', '三哥', '四哥');
 
 // ES6的rest参数...args，rest参数必须放在最后面
 
@@ -250,10 +250,8 @@ function data(...args) {
   console.log(args); // fliter some every map
 }
 
-data("大哥", "二哥", "三哥", "四哥"); //返回数组
+data('大哥', '二哥', '三哥', '四哥'); //返回数组
 ```
-
-![image-20210727152444060](C:\Users\梁宵\AppData\Roaming\Typora\typora-user-images\image-20210727152444060.png)
 
 ## 9：扩展运算符
 
