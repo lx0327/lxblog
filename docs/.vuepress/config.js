@@ -3,7 +3,6 @@ import { defaultTheme } from "vuepress";
 export default defineUserConfig({
   lang: 'zh-CN',
   title: 'lxblog',
-  base: "/lxblog/",
   description: '记录学习笔记的博客',
   theme: defaultTheme({
     logo: "/images/logo.jpg",
