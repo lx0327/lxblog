@@ -1,15 +1,9 @@
 import { defineUserConfig } from "vuepress";
 import { defaultTheme } from "vuepress";
 export default defineUserConfig({
-<<<<<<< HEAD
   lang: 'zh-CN',
   title: 'lxblog',
   description: '记录学习笔记的博客',
-=======
-  lang: "zh-CN",
-  title: "lxblog",
-  description: "这是我的第一个 VuePress 站点",
->>>>>>> 59d2db605e1e64191f187de97b5b652b61af1e62
   theme: defaultTheme({
     logo: "/images/logo.jpg",
     // 默认主题配置
@@ -31,15 +25,9 @@ export default defineUserConfig({
         children: [{ text: "Vue基础", link: "/guide/Vue/Vue.md" }]
       },
       {
-<<<<<<< HEAD
         text: 'React',
         children: [{ text: 'React基础', link: '/guide/React/React基础.md' }, { text: 'Redux', link: '/guide/React/Redux.md' }],
       },
-=======
-        text: "React",
-        children: [{ text: "React基础", link: "/guide/React/React基础.md" }]
-      }
->>>>>>> 59d2db605e1e64191f187de97b5b652b61af1e62
     ],
     sidebar: {
       "/": [
