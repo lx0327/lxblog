@@ -54,7 +54,7 @@ react 既可以开发 web 应用也可以使用同样的语法开发原生应用
 { JS 表达式 }
 ```
 
-```react
+```javascript
 const name = 'lx'
 <h1>你好，我叫{lx}</h1>
 ```
@@ -75,7 +75,7 @@ const name = 'lx'
 
 实现：使用数组的`map` 方法
 
-```react
+```javascript
 // 来个列表
 const fruits = [
   { id: 1, name: '苹果' },
@@ -107,7 +107,7 @@ export default App
 
 ## 4. JSX 条件渲染
 
-```react
+```javascript
 // 来个布尔值
 const flag = true
 function App() {
@@ -129,7 +129,7 @@ export default App
 
 - 类名 - className - 动态类名控制
 
-```react
+```javascript
 import './app.css'
 const showTitle = true
 function App() {
@@ -159,7 +159,7 @@ export default App
 
 **组件定义与渲染**
 
-```react
+```javascript
 // 定义函数组件
 function HelloFn () {
   return <div>这是我的第一个函数组件!</div>
@@ -191,7 +191,7 @@ export default App
 
 **组件定义与渲染**
 
-```react
+```javascript
 // 引入React
 import React from 'react'
 
@@ -230,7 +230,7 @@ export default App
   react 事件采用驼峰命名法，比如：onMouseEnter、onFocus
 - 样例
 
-```react
+```javascript
 // 函数组件
 function HelloFn () {
   // 定义事件回调函数
@@ -248,7 +248,7 @@ function HelloFn () {
 
 > 获取事件对象 e 只需要在 事件的回调函数中 补充一个形参 e 即可拿到
 
-```react
+```javascript
 // 函数组件
 function HelloFn () {
   // 定义事件回调函数
@@ -264,7 +264,7 @@ function HelloFn () {
 
 ### 3. 传递额外参数
 
-```react
+```javascript
 import React from "react"
 // 如何获取额外的参数？
 // onClick={ onDel } -> onClick={ () => onDel(id) }
@@ -317,7 +317,7 @@ export default App
 >
 > 2. 使用的时候: 需要借助 this 关键词获取
 
-```react
+```javascript
 import React from "react"
 class CComponent extends React.Component {
   // class Fields
@@ -365,7 +365,7 @@ export default App
 - 通过 class 的实例属性 state 来初始化
 - state 的值是一个对象结构，表示一个组件可以有多个数据状态
 
-```react
+```javascript
 class Counter extends React.Component {
   // 初始化状态
   state = {
@@ -381,7 +381,7 @@ class Counter extends React.Component {
 
 - 通过 this.state 来获取状态
 
-```react
+```javascript
 class Counter extends React.Component {
   // 初始化状态
   state = {
@@ -408,7 +408,7 @@ class Counter extends React.Component {
 - 注意事项
   **不要直接修改 state 中的值，必须通过 setState 方法进行修改**
 
-```react
+```javascript
 class Counter extends React.Component {
   // 定义数据
   state = {
@@ -433,7 +433,7 @@ class Counter extends React.Component {
 
 **1. 错误的直接修改**
 
-```react
+```javascript
 state = {
   count : 0,
   list: [1,2,3],
@@ -458,7 +458,7 @@ this.state.person.name = 'rose'
 
 **2. 正确的基于当前状态创建新值**
 
-```react
+```javascript
 this.setState({
     count: this.state.count + 1
     list: [...this.state.list, 4],
@@ -492,7 +492,7 @@ this.setState({
 3. 为 input 添加 change 事件，在事件处理程序中，通过事件对象 e 获取到当前文本框的值（`即用户当前输入的值`）
 4. 调用 setState 方法，将文本框的值作为 state 状态的最新值
 
-```react
+```javascript
 import React from 'react'
 
 class InputComponent extends React.Component {
@@ -538,7 +538,7 @@ export default App
 3. 为 input 添加 ref 属性，值为`msgRef`
 4. 在按钮的事件处理程序中，通过`msgRef.current`即可拿到 input 对应的 dom 元素，而其中`msgRef.current.value`拿到的就是文本框的值
 
-```react
+```javascript
 import React, { createRef } from 'react'
 
 class InputComponent extends React.Component {
@@ -585,7 +585,7 @@ export default App
 
 **代码实现**
 
-```react
+```javascript
 import React from 'react'
 
 // 函数式子组件
@@ -656,13 +656,13 @@ export default App
 
 1- 创建 Context 对象 导出 Provider 和 Consumer 对象
 
-```react
+```javascript
 const { Provider, Consumer } = createContext()
 ```
 
 2- 使用 Provider 包裹上层组件提供数据
 
-```react
+```javascript
 <Provider value={this.state.message}>
     {/* 根组件 */}
 </Provider>
@@ -670,7 +670,7 @@ const { Provider, Consumer } = createContext()
 
 3- 需要用到数据的组件使用 Consumer 包裹获取数据
 
-```react
+```javascript
 <Consumer >
     {value => /* 基于 context 值进行渲染*/}
 </Consumer>
@@ -678,7 +678,7 @@ const { Provider, Consumer } = createContext()
 
 **代码实现**
 
-```react
+```javascript
 import React, { createContext }  from 'react'
 
 // 1. 创建Context对象
@@ -792,7 +792,7 @@ Hooks 的出现解决了俩个问题 1. 组件的状态逻辑复用 2.class 组�
 
 **代码实现**
 
-```react
+```javascript
 import { useState } from 'react'
 
 function App() {
@@ -850,7 +850,7 @@ export default App
 1.  1.  只能出现在函数组件或者其他 hook 函数中
     2.  不能嵌套在 if/for/其它函数中（react 按照 hooks 的调用顺序识别每一个 hook）
 
-```react
+```javascript
 let num = 1
 function List(){
   num++
@@ -888,7 +888,7 @@ function List(){
 
 **代码实现**
 
-```react
+```javascript
 import { useEffect, useState } from 'react'
 
 function App() {
@@ -919,7 +919,7 @@ export default App
 
 > 组件只在首次渲染时执行一次
 
-```react
+```javascript
 useEffect(()=>{
 	 console.log('副作用执行了')
 },[])
@@ -929,7 +929,7 @@ useEffect(()=>{
 
 > 副作用函数在首次渲染时执行，在依赖项发生变化时重新执行
 
-```react
+```javascript
 function App() {
     const [count, setCount] = useState(0)
     const [name, setName] = useState('zs')
@@ -960,7 +960,7 @@ function App() {
 > 1. 组件卸载时自动执行
 > 2. 组件更新时，下一个 useEffect 副作用函数执行之前自动执行
 
-```react
+```javascript
 import { useEffect, useState } from "react"
 const App = () => {
   const [count, setCount] = useState(0)
@@ -993,7 +993,7 @@ export default App
 
 **语法**
 
-```react
+```javascript
 const [name, setName] = useState(()=>{
   // 编写计算逻辑    return '计算之后的初始值'
 })
@@ -1004,7 +1004,7 @@ const [name, setName] = useState(()=>{
 1. 回调函数 return 出去的值将作为 `name` 的初始值
 2. 回调函数中的逻辑只会在组件初始化的时候执行一次
 
-```react
+```javascript
 import { useState } from 'react'
 
 function Counter(props) {
@@ -1040,7 +1040,7 @@ export default App
 
 不可以直接在 useEffect 的回调函数外层直接包裹 await ，因为**异步会导致清理函数无法立即返回**
 
-```react
+```javascript
 useEffect(async ()=>{
     const res = await axios.get('http://geek.itheima.net/v1_0/channels')
     console.log(res)
@@ -1051,7 +1051,7 @@ useEffect(async ()=>{
 
 在内部单独定义一个函数，然后把这个函数包装成同步
 
-```react
+```javascript
 useEffect(()=>{
     async function fetchData(){
        const res = await axios.get('http://geek.itheima.net/v1_0/channels')                            console.log(res)
@@ -1073,7 +1073,7 @@ useEffect(()=>{
 
 **获取 dom**
 
-```react
+```javascript
 import { useEffect, useRef } from 'react'
 function App() {
     const h1Ref = useRef(null)
@@ -1101,7 +1101,7 @@ export default App
 2. 在顶层组件通过`Provider` 提供数据
 3. 在底层组件通过`useContext`函数获取数据
 
-```react
+```javascript
 import { createContext, useContext } from 'react'
 // 创建Context对象
 const Context = createContext()

@@ -3,7 +3,7 @@ import { defaultTheme } from 'vuepress'
 export default defineUserConfig({
   lang: 'zh-CN',
   title: 'lxblog',
-  description: '这是我的第一个 VuePress 站点',
+  description: '记录学习笔记的博客',
   theme: defaultTheme({
     logo: '/images/logo.jpg',
     // 默认主题配置
@@ -26,7 +26,7 @@ export default defineUserConfig({
       },
       {
         text: 'React',
-        children: [{ text: 'React基础', link: '/guide/React/React基础.md' }],
+        children: [{ text: 'React基础', link: '/guide/React/React基础.md' }, { text: 'Redux', link: '/guide/React/Redux.md' }],
       },
     ],
     //   // SidebarItem
