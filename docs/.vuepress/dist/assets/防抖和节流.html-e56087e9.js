@@ -1,4 +1,4 @@
-import{_ as n,p as e,q as i,a1 as s}from"./framework-204010b2.js";const t={},l=s(`<h2 id="_1-防抖" tabindex="-1"><a class="header-anchor" href="#_1-防抖" aria-hidden="true">#</a> 1：防抖：</h2><p>高频率触发的事件,在指定的单位时间内，只响应最后一次，如果在指定的时间在触发，则重新计算时间(后面触发的事件执行，替代了前面的事件)</p><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>&lt;body&gt;
+import{_ as n,p as e,q as i,a1 as s}from"./framework-7aa8fa41.js";const t={},l=s(`<h2 id="_1-防抖" tabindex="-1"><a class="header-anchor" href="#_1-防抖" aria-hidden="true">#</a> 1：防抖：</h2><p>高频率触发的事件,在指定的单位时间内，只响应最后一次，如果在指定的时间在触发，则重新计算时间(后面触发的事件执行，替代了前面的事件)</p><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>&lt;body&gt;
     &lt;button id=&quot;btn&quot;&gt;防抖&lt;/button&gt;
     &lt;script&gt;
         function debounce(fn, time) {

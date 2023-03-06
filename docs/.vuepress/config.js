@@ -1,5 +1,7 @@
 import { defineUserConfig } from "vuepress";
 import { defaultTheme } from "vuepress";
+import { registerComponentsPlugin } from '@vuepress/plugin-register-components';
+import path from "path";
 export default defineUserConfig({
   lang: 'zh-CN',
   title: 'lxblog',
@@ -8,26 +10,26 @@ export default defineUserConfig({
     logo: "/images/logo.jpg",
     // 默认主题配置
     navbar: [
-      {
-        text: "首页",
-        link: "/"
-      },
-      {
-        text: "HTML&CSS",
-        link: "/guide/HTML&CSS/HTML&CSS.md"
-      },
-      {
-        text: "JavaScript",
-        link: "/guide/JavaScript/JavaScript.md"
-      },
-      {
-        text: "Vue",
-        children: [{ text: "Vue基础", link: "/guide/Vue/Vue.md" }]
-      },
-      {
-        text: 'React',
-        children: [{ text: 'React基础', link: '/guide/React/React基础.md' }, { text: 'Redux', link: '/guide/React/Redux.md' }],
-      },
+      // {
+      //   text: "首页",
+      //   link: "/"
+      // },
+      // {
+      //   text: "HTML&CSS",
+      //   link: "/guide/HTML&CSS/HTML&CSS.md"
+      // },
+      // {
+      //   text: "JavaScript",
+      //   link: "/guide/JavaScript/JavaScript.md"
+      // },
+      // {
+      //   text: "Vue",
+      //   children: [{ text: "Vue基础", link: "/guide/Vue/Vue.md" }]
+      // },
+      // {
+      //   text: 'React',
+      //   children: [{ text: 'React基础', link: '/guide/React/React基础.md' }, { text: 'Redux', link: '/guide/React/Redux.md' }],
+      // },
     ],
     sidebar: {
       "/": [
@@ -75,6 +77,9 @@ export default defineUserConfig({
     }
   }),
   plugins: [
-    // 插件的配置
+    registerComponentsPlugin({
+      // 配置项
+      componentsDir: path.resolve(__dirname, './components')
+    })
   ]
 });
