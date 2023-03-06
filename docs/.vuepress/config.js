@@ -66,7 +66,8 @@ export default defineUserConfig({
             "/guide/Vue/导航守卫.md",
             "/guide/Vue/组件.md",
             "/guide/Vue/vueRouter.md",
-            "/guide/Vue/vuex.md"
+            "/guide/Vue/vuex.md",
+            "/guide/Vue/KeepAlive.md"
           ]
         },
         { text: "React", collapsible: true, children: ["/guide/React/React基础.md", "/guide/React/Redux.md"] }
