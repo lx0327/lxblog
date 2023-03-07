@@ -57,7 +57,8 @@ export default defineUserConfig({
             "/guide/JavaScript/深拷贝和浅拷贝.md",
             "/guide/JavaScript/es6.md",
             "/guide/JavaScript/js执行机制.md",
-            "/guide/JavaScript/js作用域.md"
+            "/guide/JavaScript/js作用域.md",
+            "/guide/JavaScript/Promise&&async&&await.md"
           ]
         },
         {
