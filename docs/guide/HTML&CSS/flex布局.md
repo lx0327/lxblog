@@ -69,9 +69,17 @@ title: flex布局
 | nowrap | 默认值不换行 |
 | wrap   | 换行         |
 
-### 4 ：align-items
 
-设置侧轴上子元素的排列方式（若 x 为主轴则侧轴为 y）（适合单行）
+
+### 4：align-items
+
+设置侧轴上子元素的排列方式（若 x 为主轴则侧轴为 y）（适合单行，多行时由于align-content: stretch 作怪，stretch 是默认值，将每行的布局自动拉伸间距如下图,此时就应该使用align-content）
+
+[<img src="https://s1.ax1x.com/2023/03/09/ppnJ5y4.md.png" alt="ppnJ5y4.md.png" style="zoom:50%;" />](https://imgse.com/i/ppnJ5y4)
+
+下面是设置align-content：flex-start得到想要效果
+
+[<img src="https://s1.ax1x.com/2023/03/09/ppnYpmd.md.png" alt="ppnYpmd.md.png" style="zoom:50%;" />](https://imgse.com/i/ppnYpmd)
 
 | 属性       | 说明            |
 | ---------- | --------------- |
@@ -82,7 +90,7 @@ title: flex布局
 
 ### 5: align-content
 
-设置侧轴上子元素的排列方式（适合多行在单下没有效果）
+设置侧轴上子元素的排列方式（适合多行在单下没有效果及单行**flex-wrap:nowrap**时不生效）
 
 | 属性          | 说明                                   |
 | ------------- | -------------------------------------- |
@@ -97,6 +105,10 @@ title: flex布局
 
 （flex-direction 和 flex-wrap 的结合）
 
+```html
+flex-flow：row wrap = flex-direction：row,flex-wrap:wrap
+```
+
 ## 3: flex 布局子项常见属性
 
 ### 1 ：flex 属性
@@ -107,34 +119,33 @@ flex 属性是 flex-grow, flex-shrink 和 flex-basis 的简写，默认值为 0 
 
 该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。
 
-```
-flex-flow：row wrap = flex-direction：row,flex-wrap:wrap
-<style>
-.flex {
-display: flex;
-background-color: pink;
-width: 100%;
-```
+下图是第二个盒子设置了flex:1其他盒子默认所以当宽度不够时他会被缩小
 
-### 2: align-self
+**flex:1代表flex-grow:1,flex-shrink:1,flex-basis:0%**
+
+[![ppnYEp8.md.png](https://s1.ax1x.com/2023/03/09/ppnYEp8.md.png)](https://imgse.com/i/ppnYEp8)
+
+### 2 : align-self
 
 控制子项自己在侧轴的排列方式
 
 ### 3 ：order
 
-属性定义子项自己的排列顺序（默认为 0 ，负数往前移动反之后移）
+> 在flex布局中，order属性用于控制子项的排列顺序。order的默认值为0，当你给一个子项设置order:1时，它会排列在所有order值为0或负数的子项之后。因此，这个子项会跑到最后而不是后移一位。
+
+属性定义子项自己的排列顺序（默认为 0 ）
 
 ### 4 ：flex-grow
 
 属性定义项目的放大比例，默认为 0 ，即如果存在剩余空间，也不放大。
 
-计算公式：所占大小=当前盒子设置的 flex 值/所有盒子设置的 flex-grow 值
+> 计算公式：所占大小=当前盒子设置的 flex 值/所有盒子设置的 flex-grow 值
 
 ### 5 ：flex-shrink
 
 属性定义了项目的缩小比例，默认为 1 ，即如果空间不足，该项目将缩小。
 
-如果所有项目的 flex-shrink 属性都为 1 ， 当空间不足时 ，都将等比例缩小。如果一个项目的 flex-shrink 属性为 0 ，其他项目都为 1 ，则空间不足时，前者不缩小。负值对该属性无效。
+>  如果所有项目的 flex-shrink 属性都为 1 ， 当空间不足时 ，都将等比例缩小。如果一个项目的 flex-shrink 属性为 0 ，其他项目都为 1 ，则空间不足时，前者不缩小。负值对该属性无效。
 
 ### 6 ：flex-basis
 
