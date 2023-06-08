@@ -7,16 +7,16 @@
     <template #header>
       <div class="card-header">
         <span>Card name</span>
-        <el-button class="button" text>Operation button</el-button>
+        <el-button class="button" @click="addCount" text>Operation button</el-button>
       </div>
     </template>
-    <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
+    <div v-for="o in count" :key="o" class="text item">{{ 'List item ' + o }}</div>
   </el-card>
 </template>
 <script setup>
-import {ref} from 'vue'
-let count=ref(0)
-const addCount=()=>{
+import { ref } from 'vue'
+let count = ref(5)
+const addCount = () => {
   count.value++
 }
 </script>
@@ -29,7 +29,7 @@ const addCount=()=>{
 
 .text {
   font-size: 14px;
-  color:#fff
+  color: #fff
 }
 
 .item {
