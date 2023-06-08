@@ -59,7 +59,7 @@ export default defineUserConfig({
             "/guide/JavaScript/js执行机制.md",
             "/guide/JavaScript/js作用域.md",
             "/guide/JavaScript/Promise&&async&&await.md",
-            "/guide/JavaScript/Object.defineProperty.md"
+            "/guide/JavaScript/defineProperty.md"
           ]
         },
         {
