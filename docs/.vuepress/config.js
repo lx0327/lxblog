@@ -54,12 +54,14 @@ export default defineUserConfig({
             "/guide/JavaScript/数组API.md",
             "/guide/JavaScript/字符串API.md",
             "/guide/JavaScript/防抖和节流.md",
+            "/guide/JavaScript/回流和重绘.md",
             "/guide/JavaScript/深拷贝和浅拷贝.md",
             "/guide/JavaScript/es6.md",
             "/guide/JavaScript/js执行机制.md",
             "/guide/JavaScript/js作用域.md",
             "/guide/JavaScript/Promise&&async&&await.md",
-            "/guide/JavaScript/defineProperty.md"
+            "/guide/JavaScript/defineProperty.md",
+            "/guide/JavaScript/this指向.md"
           ]
         },
         {
@@ -74,7 +76,8 @@ export default defineUserConfig({
             "/guide/Vue/KeepAlive.md"
           ]
         },
-        { text: "React", collapsible: true, children: ["/guide/React/React基础.md", "/guide/React/Redux.md"] }
+        { text: "React", collapsible: true, children: ["/guide/React/React基础.md", "/guide/React/Redux.md"] },
+        { text: "Http", collapsible: true, children: ["/guide/Http/cookie-localStorage-sessionStorage.md"] }
       ]
     }
   }),

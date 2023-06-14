@@ -7,7 +7,7 @@
     <template #header>
       <div class="card-header">
         <span>Card name</span>
-        <el-button class="button" @click="addCount" text>Operation button</el-button>
+        <el-button class="button" @click="delCount" text>---</el-button>
       </div>
     </template>
     <div v-for="o in count" :key="o" class="text item">{{ 'List item ' + o }}</div>
@@ -15,9 +15,12 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-let count = ref(5)
+let count = ref(3)
 const addCount = () => {
   count.value++
+}
+const delCount = () => {
+  count.value--
 }
 </script>
 <style scoped>
