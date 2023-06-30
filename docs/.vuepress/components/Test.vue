@@ -2,26 +2,37 @@
   <div>
     {{ count }}
   </div>
-  <el-button type="success" @click="addCount">++++</el-button>
+
   <el-card class="box-card">
     <template #header>
       <div class="card-header">
-        <span>Card name</span>
-        <el-button class="button" @click="delCount" text>---</el-button>
+        <el-button type="success" @click="addCount">加一条</el-button>
+        <el-button type="danger" @click="delCount">删一条</el-button>
       </div>
     </template>
-    <div v-for="o in count" :key="o" class="text item">{{ 'List item ' + o }}</div>
+    <div v-for="o in list" :key="o" class="text item">{{ o }}</div>
   </el-card>
 </template>
 <script setup>
 import { ref } from 'vue'
-let count = ref(3)
+let list = ref([])
 const addCount = () => {
-  count.value++
+  var xhr = new XMLHttpRequest();
+  xhr.open('get', 'https://v1.hitokoto.cn?c=f');
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      var data = JSON.parse(xhr.responseText);
+      list.value.push(data.hitokoto)
+    }
+  }
+  xhr.send();
 }
 const delCount = () => {
-  count.value--
+  list.value.length--
 }
+addCount()
+
+
 </script>
 <style scoped>
 .card-header {
