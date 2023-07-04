@@ -15,17 +15,20 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+import { XMLHttpRequest } from 'xmlhttprequest';
 let list = ref([])
 const addCount = () => {
-  var xhr = new XMLHttpRequest();
-  xhr.open('get', 'https://v1.hitokoto.cn?c=f');
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-      var data = JSON.parse(xhr.responseText);
-      list.value.push(data.hitokoto)
-    }
-  }
-  xhr.send();
+  // var xhr = XMLHttpRequest;
+  // console.log(xhr)
+  // xhr.open('get', 'https://v1.hitokoto.cn?c=f');
+  // xhr.onreadystatechange = function () {
+  //   if (xhr.readyState === 4) {
+  //     var data = JSON.parse(xhr.responseText);
+  //     list.value.push(data.hitokoto)
+  //   }
+  // }
+  // xhr.send();
+  list.value.push(111)
 }
 const delCount = () => {
   list.value.length--

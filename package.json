@@ -19,6 +19,7 @@
     "vuepress-plugin-auto-catalog": "^2.0.0-beta.166"
   },
   "dependencies": {
-    "element-plus": "^2.2.33"
+    "element-plus": "^2.2.33",
+    "xmlhttprequest": "^1.8.0"
   }
 }
