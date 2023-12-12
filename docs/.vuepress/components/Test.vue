@@ -19,7 +19,6 @@ import { ref } from 'vue'
 let list = ref([])
 const addCount = () => {
   var xhr = new XMLHttpRequest();
-  console.log(xhr)
   xhr.open('get', 'https://api.7585.net.cn/jscb/api.php');
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {

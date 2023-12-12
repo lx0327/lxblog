@@ -1,0 +1,1 @@
+import{_ as t,M as n,p as o,q as l,N as s,V as a,R as c,Q as _}from"./framework-375afed4.js";const r={},d=_("p",null,"lx 的 blog 记录前端学习笔记",-1);function i(m,f){const e=n("ClientOnly");return o(),l("div",null,[d,s(e,null,{default:a(()=>[c(" <test/> ")]),_:1})])}const u=t(r,[["render",i],["__file","index.html.vue"]]);export{u as default};
